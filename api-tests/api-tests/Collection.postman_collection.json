@@ -1,0 +1,177 @@
+{
+  "info": {
+    "_postman_id": "c5a6c3fa-3b6e-4c8c-8f0b-qa-pacheco-portfolio",
+    "name": "QA Portfolio - José Pacheco",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Login",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "const json = pm.response.json();",
+                  "pm.environment.set(\"token\", json.accessToken);",
+                  "",
+                  "pm.test(\"Token gerado\", function () {",
+                  "    pm.expect(json).to.have.property(\"accessToken\");",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"{{email}}\",\n  \"password\": \"{{password}}\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/auth/login",
+              "host": ["{{baseUrl}}"],
+              "path": ["auth", "login"]
+            }
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "PIX - Depósito",
+      "item": [
+        {
+          "name": "Criar Depósito PIX",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "let json = pm.response.json();",
+                  "pm.environment.set(\"transactionID\", json.transactionID);",
+                  "",
+                  "pm.test(\"Retorno contém QR Code\", function () {",
+                  "    pm.expect(json).to.have.property(\"qrCode\");",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n \"methodType\": 37,\n \"value\": 10\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/payments/payment/checkout",
+              "host": ["{{baseUrl}}"],
+              "path": ["payments", "payment", "checkout"]
+            }
+          }
+        },
+
+        {
+          "name": "Verificar Transação",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "let json = pm.response.json();",
+                  "pm.test(\"Transação possui status\", function () {",
+                  "    pm.expect(json).to.have.property(\"status\");",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/payments/transaction/verify?transactionID={{transactionID}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["payments", "transaction", "verify"],
+              "query": [
+                { "key": "transactionID", "value": "{{transactionID}}" }
+              ]
+            }
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "Saques",
+      "item": [
+        {
+          "name": "Criar Saque",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "const json = pm.response.json();",
+                  "pm.test(\"Saque enviado para análise\", function () {",
+                  "    pm.expect(json).to.have.property(\"status\");",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n \"methodType\": 50,\n \"value\": 10,\n \"additional\": {\n   \"accountType\": \"CPF\",\n   \"cpf\": \"12345678900\"\n }\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/payments/payment/payout",
+              "host": ["{{baseUrl}}"],
+              "path": ["payments", "payment", "payout"]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    { "key": "baseUrl", "value": "https://api.exemplo.com" },
+    { "key": "email", "value": "usuario@teste.com" },
+    { "key": "password", "value": "123456" }
+  ]
+}
