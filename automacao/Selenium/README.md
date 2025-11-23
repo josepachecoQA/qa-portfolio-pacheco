@@ -1,57 +1,52 @@
-# Objetivo do Projeto
+🤖 Automação Web com Selenium – Projeto de Portfólio
+por José Pacheco da Silva Neto
 
-O objetivo deste projeto de automação é simplificar o processo de validação de fluxos específicos durante as fases de teste. A automação permitirá que desenvolvedores e testadores (QA) verifiquem a funcionalidade várias vezes sem a necessidade de intervenção manual, economizando tempo e recursos.
+Este diretório contém um projeto real desenvolvido em Python + Selenium WebDriver para automação de fluxos críticos do sistema interno.
 
-## Justificativa
+🚀 Tecnologias utilizadas
 
-Tradicionalmente, o processo de teste manual consome muito tempo e é suscetível a erros humanos. Com a automação, é possível executar testes repetidos de forma eficiente, melhorando a consistência dos resultados e reduzindo o tempo de desenvolvimento e validação.
+Python
 
-## Escopo
+Selenium WebDriver
 
+WebDriver Manager
 
-O projeto abrange a automação de fluxos críticos que requerem validação frequente durante o ciclo de desenvolvimento e teste. Isto inclui, mas não se limita a:
+PyAutoGUI
 
--    Testes funcionais para garantir que os fluxos de trabalho principais operem conforme o esperado.
--    Testes de regressão para assegurar que as alterações de código não causem efeitos colaterais indesejados.
--    Testes de integração para validar a comunicação entre diferentes componentes do sistema.
+Requests
 
+Estrutura baseada em módulos reutilizáveis
 
-## Benefícios Esperados
-  
--    Eficiência: A automação permitirá que os testes sejam realizados rapidamente, reduzindo o tempo total necessário para cada ciclo de teste.
--    Consistência: A execução automatizada de testes reduz a margem de erro humano, aumentando a precisão dos resultados.
--    Redução de Custos: Ao automatizar tarefas repetitivas, o projeto reduz a necessidade de recursos humanos para testes manuais.
--    Feedback Rápido: A automação fornece feedback imediato sobre o comportamento do sistema, permitindo ações corretivas rápidas.
-## Ferramentas e Tecnologias
+📁 Estrutura do Projeto
+selenium/
+├── GESTAO/               # Fluxos automatizados de gestão
+├── REDE/                 # Automação de telas de rede e acessos
+├── utils/                # Funções utilitárias gerais
+│   └── ...
+├── db_utils.py           # Funções de banco de dados
+├── requirements.txt      # Dependências do projeto
+└── README.md             # Este arquivo
 
-Para este projeto, serão utilizadas ferramentas e tecnologias de automação de teste que atendem aos requisitos de funcionalidade, integração e desempenho. Algumas ferramentas consideradas incluem, mas não estão limitadas a:
+▶️ Como executar
+1️⃣ Criar ambiente virtual
+python -m venv venv
+source venv/bin/activate   # Linux / Mac
+venv\Scripts\activate      # Windows
 
-- Selenium para automação de testes de interface do usuário.
-- Python 3 como a linguagem de programação para escrever scripts de teste que controlam o Selenium.
-- Psycopg2 para manipulação com o Banco de dados PostgreSQL.
-## Metodologia
+2️⃣ Instalar dependências
+pip install -r requirements.txt
 
-- 1º Planejamento: Identificação dos fluxos a serem automatizados e definição dos casos de teste.
-- 2ºDesenvolvimento: Criação e configuração dos scripts de automação.
-- 3º Teste e Validação: Execução dos testes automatizados e análise dos resultados.
-- 4º Ajustes e Correções: Resolução de problemas encontrados durante a fase de teste.
+3️⃣ Executar um teste ou módulo
+python GESTAO/nome_do_teste.py
 
-***
+🧠 Destaques técnicos
 
-## Estrutura do projeto
+Uso de esperas explícitas no Selenium
 
-### BOOT_USUARIO
+Automação modular e reutilizável
 
-#### Gestão
-- Prospecção
-#### Rede
-- Módulo infra
-- Módulo Movimento
-- Módulo Perfil GCB
-- Módulo Pessoas
+Separação clara entre lógica, utilidades e fluxos
 
+Scripts prontos para expansão
 
-# Conclusão
-
-Este projeto de automação visa proporcionar uma abordagem mais eficiente para o teste e validação de fluxos críticos, beneficiando tanto desenvolvedores quanto testadores. A automação bem-sucedida deve resultar em economia de tempo, custos reduzidos e uma maior confiabilidade no processo de teste.
-
+Organização profissional para equipes de QA
