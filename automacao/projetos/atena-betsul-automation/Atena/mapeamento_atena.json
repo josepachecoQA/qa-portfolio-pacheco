@@ -1,0 +1,276 @@
+{
+    "sistema": "Gestor Atena",
+    "roteiro_cadastros": [
+      {
+        "modulo": "Sites",
+        "telas": [
+          {
+            "nome": "Cadastro de Site",
+            "caminho": "Sites > Cadastros",
+            "campos": [
+              "nome_fantasia",
+              "dominio_principal",
+              "tipo_site",
+              "companyKey",
+              "status",
+              "tempo_max_cancelamento",
+              "tema",
+              "idioma_padrao",
+              "moeda_padrao"
+            ],
+            "acoes": ["criar", "editar", "duplicar", "excluir", "exportar"],
+            "dependencias": ["deve possuir pelo menos uma carteira e domínio vinculados"]
+          },
+          {
+            "nome": "Domínios",
+            "caminho": "Sites > Domínios",
+            "campos": ["dominio", "tipo", "site_vinculado"],
+            "acoes": ["cadastrar", "editar", "excluir"],
+            "dependencias": ["domínio deve estar ativo e resolvendo DNS"]
+          },
+          {
+            "nome": "Carteiras",
+            "caminho": "Sites > Carteiras",
+            "campos": [
+              "nome",
+              "tipo",
+              "codigo_interno",
+              "moeda",
+              "site_vinculado",
+              "tipo_saldo"
+            ],
+            "acoes": ["cadastrar", "editar", "vincular_site"],
+            "dependencias": ["requer site existente"]
+          },
+          {
+            "nome": "Métodos de Pagamento",
+            "caminho": "Sites > Pagamentos > Métodos",
+            "campos": [
+              "nome",
+              "tipo",
+              "provedor",
+              "carteira_destino",
+              "taxa",
+              "limite_minimo",
+              "limite_maximo"
+            ],
+            "acoes": ["criar", "editar", "ativar", "inativar"],
+            "dependencias": ["configuração prévia no backend pode ser necessária"]
+          },
+          {
+            "nome": "Promoções",
+            "caminho": "Sites > Promoções > Cadastros",
+            "campos": [
+              "titulo",
+              "descricao",
+              "validade",
+              "mercado",
+              "tipo",
+              "idTemplate",
+              "exibeSite",
+              "restrTypeText",
+              "fatorRollover",
+              "cupom",
+              "link"
+            ],
+            "acoes": ["criar", "editar", "publicar", "excluir"],
+            "dependencias": ["template e cupom devem estar configurados"]
+          },
+          {
+            "nome": "Integrações",
+            "caminho": "Sites > Integrações",
+            "campos": [
+              "recaptcha_key",
+              "api_pix_client_id",
+              "api_pix_secret",
+              "chat_api_key",
+              "pesquisa_satisfacao_url",
+              "analytics_key"
+            ],
+            "acoes": ["salvar", "testar_conexao"],
+            "dependencias": ["acesso restrito a usuários root"]
+          },
+          {
+            "nome": "Configurações Gerais",
+            "caminho": "Sites > Configurações",
+            "campos": [
+              "tema",
+              "cores",
+              "cache",
+              "politica_privacidade",
+              "bloqueios_regionais"
+            ],
+            "acoes": ["salvar", "aplicar"],
+            "dependencias": ["alterações refletem em tempo real"]
+          }
+        ]
+      },
+      {
+        "modulo": "Usuários",
+        "telas": [
+          {
+            "nome": "Cadastro de Usuários",
+            "caminho": "Usuários > Cadastros",
+            "campos": [
+              "nome_completo",
+              "email",
+              "login",
+              "senha",
+              "perfil",
+              "site_vinculado"
+            ],
+            "acoes": ["criar", "editar", "resetar_senha", "bloquear"],
+            "dependencias": ["perfil e permissões devem estar configurados"]
+          },
+          {
+            "nome": "Perfis e Permissões",
+            "caminho": "Usuários > Perfis",
+            "campos": [
+              "nome_perfil",
+              "descricao",
+              "modulos_acessiveis",
+              "permissoes_crud"
+            ],
+            "acoes": ["criar", "clonar", "editar"],
+            "dependencias": [
+              "controla acesso a funcionalidades sensíveis como WhatsApp e Chat"
+            ]
+          }
+        ]
+      },
+      {
+        "modulo": "Financeiro",
+        "telas": [
+          {
+            "nome": "Carteiras e Saldos",
+            "caminho": "Financeiro > Carteiras",
+            "campos": ["nome", "saldo", "tipo", "site_vinculado"],
+            "acoes": ["editar_saldo", "consultar_historico"],
+            "dependencias": ["deve estar vinculada a um site"]
+          },
+          {
+            "nome": "Saques e Depósitos",
+            "caminho": "Financeiro > Movimentações",
+            "campos": ["tipo_transacao", "valor", "data", "operador", "status"],
+            "acoes": ["aprovar", "reprovar", "cancelar"],
+            "dependencias": ["validação via API PSP (Paybrokers, BigPag, Bucks)"]
+          }
+        ]
+      },
+      {
+        "modulo": "Jogos",
+        "telas": [
+          {
+            "nome": "Cadastro de Jogos",
+            "caminho": "Jogos > Cadastros",
+            "campos": [
+              "nome",
+              "provedor",
+              "tipo",
+              "rtp",
+              "volatilidade",
+              "status"
+            ],
+            "acoes": ["cadastrar", "editar", "publicar"],
+            "dependencias": ["integração com RGS necessária"]
+          },
+          {
+            "nome": "Categorias de Jogos",
+            "caminho": "Jogos > Categorias",
+            "campos": ["nome", "ordem_exibicao", "icone"],
+            "acoes": ["criar", "editar", "ordenar"]
+          }
+        ]
+      },
+      {
+        "modulo": "Relatórios",
+        "telas": [
+          {
+            "nome": "Relatório de Sites",
+            "caminho": "Relatórios > Sites",
+            "campos": ["site", "periodo", "status"],
+            "acoes": ["filtrar", "exportar_csv", "exportar_pdf"]
+          },
+          {
+            "nome": "Relatório de Transações",
+            "caminho": "Relatórios > Financeiro > Transações",
+            "campos": ["tipo", "data", "status", "operador"],
+            "acoes": ["filtrar", "exportar", "exibir_detalhes"]
+          }
+        ]
+      },
+      {
+        "modulo": "Configurações do Sistema",
+        "telas": [
+          {
+            "nome": "Parâmetros Globais",
+            "caminho": "Configurações > Parâmetros",
+            "campos": [
+              "companyKey",
+              "ambiente",
+              "url_api",
+              "controle_sessao",
+              "modo_manutencao"
+            ],
+            "acoes": ["atualizar", "aplicar"],
+            "dependencias": ["requer acesso root"]
+          },
+          {
+            "nome": "Logs do Sistema",
+            "caminho": "Configurações > Logs",
+            "campos": ["data", "usuario", "modulo", "acao"],
+            "acoes": ["filtrar", "exportar"],
+            "dependencias": ["armazenamento rotativo diário"]
+          }
+        ]
+      },
+      {
+        "modulo": "Comunicação",
+        "telas": [
+          {
+            "nome": "WhatsApp",
+            "caminho": "Comunicação > WhatsApp",
+            "campos": ["token_integracao", "canal", "mensagem_padrao"],
+            "acoes": ["conectar", "desconectar", "testar"],
+            "dependencias": ["requer permissão root"]
+          },
+          {
+            "nome": "Chat Online",
+            "caminho": "Comunicação > Chat",
+            "campos": ["provedor", "token_api", "tempo_resposta"],
+            "acoes": ["ativar", "desativar"]
+          }
+        ]
+      },
+      {
+        "modulo": "Pesquisa de Satisfação",
+        "telas": [
+          {
+            "nome": "Configuração de Pesquisa",
+            "caminho": "Pesquisa > Configurações",
+            "campos": [
+              "tipo_envio",
+              "metodo",
+              "mensagem_texto",
+              "link_externo"
+            ],
+            "acoes": ["salvar", "testar_envio"],
+            "dependencias": [
+              "pode estar vinculado ao módulo de agendamento do Medicalsys"
+            ]
+          }
+        ]
+      },
+      {
+        "modulo": "Segurança",
+        "telas": [
+          {
+            "nome": "Controle de Acesso",
+            "caminho": "Segurança > Controle de Acesso",
+            "campos": ["logs_login", "tentativas_falhas", "sessoes_ativas"],
+            "acoes": ["encerrar_sessao", "bloquear_usuario"]
+          }
+        ]
+      }
+    ]
+  }

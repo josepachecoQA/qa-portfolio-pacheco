@@ -1,0 +1,21 @@
+{
+  "sistema": "Atena",
+  "url": "https://gestor-dev.sportingplay.info",
+  "dataMapeamento": "2025-11-05T11:59:40.644Z",
+  "telas": [
+    {
+      "titulo": "Login - AtenaDev",
+      "url": "https://gestor-dev.sportingplay.info/",
+      "descricao": "Página inicial após login",
+      "temFormulario": false,
+      "quantidadeFormularios": 0,
+      "quantidadeCampos": 1,
+      "quantidadeLinks": 0,
+      "quantidadeBotoes": 1,
+      "campos": [],
+      "botoes": [],
+      "palavrasChave": false,
+      "dataMapeamento": "2025-11-05T11:59:58.240Z"
+    }
+  ]
+}

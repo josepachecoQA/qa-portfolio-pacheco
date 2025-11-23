@@ -1,0 +1,29 @@
+{
+  "name": "automacao-de-testes-atena",
+  "version": "1.0.0",
+  "description": "Testes automatizados frontend para a plataforma Atena usando Cypress",
+  "main": "index.js",
+  "scripts": {
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "cy:run:chrome": "cypress run --browser chrome",
+    "cy:run:firefox": "cypress run --browser firefox",
+    "cy:run:edge": "cypress run --browser edge",
+    "test:headless": "cypress run --headless",
+    "test:headed": "cypress run --headed"
+  },
+  "keywords": [
+    "cypress",
+    "e2e",
+    "testes",
+    "automacao",
+    "atena"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "cypress": "^13.7.0",
+    "otplib": "^12.0.1"
+  }
+}
+
