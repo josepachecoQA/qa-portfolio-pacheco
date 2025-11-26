@@ -1,88 +1,91 @@
-👨‍💻 José Pacheco da Silva Neto
-QA Pleno | Automação | Testes de API | Qualidade de Software
+![banner](./banner.png)
 
-Bem-vindo ao meu portfólio profissional!
-Atuo como Quality Assurance Pleno, com experiência real em:
+# 👨‍💻 José Pacheco – QA Pleno  
+Portfólio técnico com projetos reais de **Testes de API, Automação, BDD, Logs, Testes E2E e Integrações Financeiras (PIX/PSP)**.
 
-Testes funcionais e regressão
+---
 
-Testes de API (REST, Swagger, Postman)
+# 🚀 Sobre este portfólio
+Este repositório reúne exemplos práticos e reais da minha atuação como **Quality Assurance Pleno**, organizados por áreas fundamentais da qualidade de software:
 
-Automação com Postman, JavaScript, Python e Selenium
+- **Testes funcionais e regressão**
+- **Testes de API** (REST, Swagger, Postman)
+- **Automação com Python + Selenium**
+- **Cenários BDD (Gherkin/Cucumber)**
+- **Análise de logs** (OpenSearch, Kibana, Grafana)
+- **Testes de pagamentos** (PIX, callbacks, PSPs)
+- **Testes em sistemas distribuídos e de alta criticidade**
 
-Análise de logs (OpenSearch, Kibana, Grafana)
+Toda a estrutura é baseada em boas práticas de QA moderno, organização, documentação e clareza técnica.
 
-Testes de pagamentos (PIX, pagamentos online, callbacks e webhooks)
+---
 
-Criação e validação de cenários BDD (Gherkin/Cucumber)
+# 📂 Estrutura do repositório
 
-Testes em sistemas distribuídos e de alta complexidade
+qa-portfolio-pacheco/
+│
+├── api-tests/ → Coleções Postman, scripts, environment
+├── automacao/ → Scripts de automação Python/Selenium
+├── bdd/ → Cenários Gherkin e estrutura BDD
+├── testes-manuais/ → Estratégias, casos de teste, documentos
+└── README.md → Você está aqui
 
-SQL e NoSQL aplicado ao QA
 
-Documentação técnica e análise de requisitos
+---
 
-🛠️ Tecnologias e Ferramentas que utilizo
-🔹 Linguagens & Frameworks
+# 🔧 Tecnologias e Ferramentas utilizadas
+- **Postman**
+- **Python + Selenium**
+- **JavaScript**
+- **Gherkin (BDD)**
+- **Kibana / OpenSearch**
+- **Docker**
+- **MongoDB e PostgreSQL**
+- **Git / GitHub**
 
-JavaScript
+---
 
-Python
+# 🧪 Destaques do Portfólio
 
-Selenium WebDriver
+### ✅ Testes de API  
+- Scripts de validação  
+- Collections completas  
+- Testes com variáveis dinâmicas  
+- Integração com ambientes reais (PIX/PSP)
 
-Robot Framework
+👉 [`/api-tests`](./api-tests)
 
-Gherkin (Cucumber)
+---
 
-Postman + Newman
+### ✅ Automação com Python + Selenium  
+- Login automatizado  
+- Cenários completos  
+- Boas práticas de Page Object Model
 
-🔹 Bancos de Dados
+👉 [`/automacao`](./automacao)
 
-MongoDB
+---
 
-PostgreSQL
+### ✅ BDD – Cenários Gherkin  
+- Exemplos reais  
+- Fluxos complexos  
+- Escrito de forma clara e escalável
 
-MySQL
+👉 [`/bdd`](./bdd)
 
-🔹 Observabilidade & Logs
+---
 
-OpenSearch
+### 📘 Documentação e Estratégia de Testes  
+- Estratégias formais  
+- Matriz de testes  
+- Casos funcionais detalhados  
 
-Kibana
+👉 [`/testes-manuais`](./testes-manuais)
 
-Grafana
+---
 
-🔹 DevOps & Versionamento
+# 📬 Contato  
+Se quiser conhecer mais sobre meus projetos de QA ou conversar sobre testes, é só me chamar:
 
-Git / GitHub
-
-Jenkins
-
-Docker (básico)
-
-📂 Conteúdo deste repositório
-
-Este repositório reúne exemplos do meu trabalho e estudos como QA Pleno:
-
-✔️ Testes manuais e funcionais
-
-✔️ Casos de teste
-
-✔️ Testes de API
-
-✔️ Scripts Postman
-
-✔️ Cenários BDD
-
-✔️ Queries SQL e NoSQL
-
-✔️ Materiais de estudo e boas práticas
-
-✔️ Automação de testes (em construção)
-
-📫 Contato
-
-📧 josepachecocontato159@gmail.com
-
-📍 João Pessoa – PB
+📧 josepachecocontato159@gmail.com  
+🔗 LinkedIn: https://linkedin.com/in/josepachecoqa/  
